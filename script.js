@@ -81,8 +81,8 @@ document.getElementById("NoBtn").addEventListener("click", () => {
   const message = document.getElementById("choiceMessage");
 
   message.textContent =
-    "Feel sad to here that 
-     ❤️";
+    "I understand, Ani. I'll respect your feelings " +
+    "and give you the space you need. ❤️";
 
   message.classList.remove("hidden");
   message.classList.add("reveal");
