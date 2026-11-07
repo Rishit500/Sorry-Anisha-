@@ -1,1 +1,251 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Little Apology, Anisha ❤️</title>
+
+  <meta name="theme-color" content="#fff4f5">
+  <meta name="description" content="A little apology made with love.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="ambient-glow"></div>
+  <div id="particles"></div>
+
+  <header class="topbar">
+    <div class="brand">a little note <span>♡</span></div>
+    <button id="musicBtn" class="music-btn" aria-label="Play music">
+      ♫ <span id="musicLabel">Play our song</span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- INTRO -->
+    <section class="hero" id="hero">
+
+      <div class="eyebrow">
+        <span class="line"></span>
+        A LITTLE SOMETHING FOR YOU
+        <span class="line"></span>
+      </div>
+
+      <div class="hero-heart">♡</div>
+
+      <h1>Hey, <span>Anisha</span>...</h1>
+
+      <p class="hero-text">
+        I have something important to tell you.<br>
+        And I wanted to do it in a little special way.
+      </p>
+
+      <button class="primary-btn" id="openLetter">
+        Open your little surprise <span>♡</span>
+      </button>
+
+      <div class="scroll-note">made with love, just for you</div>
+
+    </section>
+
+    <!-- APOLOGY LETTER -->
+    <section class="letter-section hidden" id="letterSection">
+
+      <div class="section-label">A LETTER FROM MY HEART</div>
+
+      <div class="letter-card">
+
+        <div class="letter-decoration">✦</div>
+
+        <div class="letter-date">To my favourite person</div>
+
+        <h2>My Dearest<br><span>Anisha</span></h2>
+
+        <div class="letter-content" id="letterContent">
+
+          <p>
+            Hey Ani,
+          </p>
+
+          <p>
+            I know things haven't been the way they should be,
+            and I just wanted to take a moment to tell you
+            something from the bottom of my heart.
+          </p>
+
+          <p>
+            I'm genuinely sorry for hurting you.
+            I know that saying sorry doesn't automatically
+            make everything okay, and I don't expect it to.
+          </p>
+
+          <p>
+            You mean so much to me, and the last thing I
+            ever want is for my words or actions to make
+            you feel unimportant or misunderstood.
+          </p>
+
+          <p>
+            I wish I could take back the moments that hurt
+            you. But what I can do is learn from them,
+            listen to you better, and try to do things
+            differently going forward.
+          </p>
+
+          <p>
+            I'm not asking you to forget what happened
+            or forgive me before you're ready.
+            Your feelings matter, and I'll respect your time.
+          </p>
+
+          <p>
+            I just wanted you to know that I'm truly sorry,
+            and that you are someone I care about deeply.
+          </p>
+
+          <p class="letter-ending">
+            With all my love,<br>
+            <span>Yours, Rishit ♡</span>
+          </p>
+
+        </div>
+
+        <div class="letter-footer">♡ &nbsp; always and sincerely &nbsp; ♡</div>
+
+      </div>
+
+      <button class="primary-btn continue-btn" id="continueBtn">
+        There's one more thing... <span>♡</span>
+      </button>
+
+    </section>
+
+    <!-- FLOWERS -->
+    <section class="flowers-section hidden" id="flowersSection">
+
+      <div class="section-label">A LITTLE GESTURE</div>
+
+      <h2>For you, <span>my love</span></h2>
+
+      <p class="section-description">
+        I couldn't bring you real flowers through a screen,
+        so here's a little bouquet made just for you.
+      </p>
+
+      <div class="bouquet" id="bouquet">
+        <div class="flower flower-one">🌹</div>
+        <div class="flower flower-two">🌷</div>
+        <div class="flower flower-three">🌹</div>
+        <div class="flower flower-four">🌸</div>
+        <div class="flower flower-five">🌷</div>
+      </div>
+
+      <button class="primary-btn" id="flowerBtn">
+        Send me a little love <span>♡</span>
+      </button>
+
+      <p class="flower-message hidden" id="flowerMessage">
+        If I could, I'd give you a thousand flowers
+        and still feel like it wasn't enough. 🌸
+      </p>
+
+      <button class="primary-btn continue-btn" id="forgiveBtn">
+        One last little thing... <span>♡</span>
+      </button>
+
+    </section>
+
+    <!-- FORGIVENESS -->
+    <section class="forgive-section hidden" id="forgiveSection">
+
+      <div class="section-label">A LITTLE QUESTION</div>
+
+      <div class="big-heart">♡</div>
+
+      <h2>Can we be<br><span>okay again?</span></h2>
+
+     
+
+      <div class="choice-buttons">
+
+        <button class="primary-btn" id="yesBtn">
+          I forgive you ♡
+        </button>
+
+        <button class="secondary-btn" id="NoBtn">
+          I don't care get lost
+        </button>
+
+      </div>
+
+      <p class="choice-message hidden" id="choiceMessage"></p>
+
+    </section>
+
+    <!-- SURPRISE -->
+    <section class="surprise-section hidden" id="surpriseSection">
+
+      <div class="surprise-content">
+
+        <div class="surprise-icon">💌</div>
+
+        <div class="section-label">A LITTLE PROMISE</div>
+
+        <h2>Thank you for<br><span>being you.</span></h2>
+
+        <p class="surprise-text">
+          No matter what, I want to keep learning,
+          understanding you, and being someone
+          who makes you feel loved and respected.
+        </p>
+
+        <div class="promise-card">
+          <span>♡</span>
+          <p>
+            I'll try to listen more,<br>
+            understand better,<br>
+            and love you a little better every day.
+          </p>
+          <span>♡</span>
+        </div>
+
+        <div class="final-message">
+          <p>You're special to me, Ani.</p>
+          <h3>Always with love ♡</h3>
+        </div>
+
+        <button class="secondary-btn" id="replayBtn">
+          Read it again ↺
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-heart">♡</div>
+    <p>made with love, just for Anisha</p>
+  </footer>
+
+  <!-- YOUR MUSIC FILE -->
+  <audio id="backgroundMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
