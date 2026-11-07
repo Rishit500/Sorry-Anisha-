@@ -1,8 +1,6 @@
 
-
 /* =========================
-   APOLOGY WEBSITE
-   Made with love for Anisha
+   APOLOGY WEBSITE FOR ANISHA
 ========================= */
 
 const hero = document.getElementById("hero");
@@ -11,13 +9,14 @@ const flowersSection = document.getElementById("flowersSection");
 const forgiveSection = document.getElementById("forgiveSection");
 const surpriseSection = document.getElementById("surpriseSection");
 
+// MUSIC
 const music = document.getElementById("backgroundMusic");
 const musicBtn = document.getElementById("musicBtn");
 const musicLabel = document.getElementById("musicLabel");
 
 let musicPlaying = false;
 
-// Smoothly show a section and scroll to it
+// SHOW SECTION
 function showSection(section) {
   section.classList.remove("hidden");
   section.classList.add("reveal");
@@ -30,21 +29,19 @@ function showSection(section) {
   }, 100);
 }
 
-// Opening the letter
+// OPEN LETTER
 document.getElementById("openLetter").addEventListener("click", () => {
   showSection(letterSection);
-
   createHearts(12);
 });
 
-// Continue to flowers
+// FLOWERS SECTION
 document.getElementById("continueBtn").addEventListener("click", () => {
   showSection(flowersSection);
-
   createHearts(15);
 });
 
-// Flower gesture
+// FLOWER BUTTON
 document.getElementById("flowerBtn").addEventListener("click", () => {
   const message = document.getElementById("flowerMessage");
 
@@ -52,26 +49,21 @@ document.getElementById("flowerBtn").addEventListener("click", () => {
   message.classList.add("reveal");
 
   createHearts(25);
-
-  document.getElementById("flowerBtn").textContent =
-    "A little bouquet for you 🌸";
 });
 
-// Continue to forgiveness question
+// FORGIVENESS SECTION
 document.getElementById("forgiveBtn").addEventListener("click", () => {
   showSection(forgiveSection);
-
   createHearts(10);
 });
 
-// Forgiveness button
+// YES BUTTON
 document.getElementById("yesBtn").addEventListener("click", () => {
   const message = document.getElementById("choiceMessage");
 
   message.textContent =
     "Thank you for sharing your heart with me. " +
-    "I'll keep trying to be better, and I hope we can " +
-    "make more beautiful memories together. ❤️";
+    "I'll keep trying to be better. ❤️";
 
   message.classList.remove("hidden");
   message.classList.add("reveal");
@@ -84,21 +76,21 @@ document.getElementById("yesBtn").addEventListener("click", () => {
   }, 1800);
 });
 
-// If she needs time
-document.getElementById("timeBtn").addEventListener("click", () => {
+// NO BUTTON - RESPECT HER SPACE
+document.getElementById("NoBtn").addEventListener("click", () => {
   const message = document.getElementById("choiceMessage");
 
   message.textContent =
-    "That's completely okay, Ani. Take all the time " +
-    "you need. I'll respect your feelings and your space. " +
-    "I'm here whenever you're ready. ❤️";
+    "I understand, Ani. I'll respect your feelings " +
+    "and give you the space you need. ❤️";
 
   message.classList.remove("hidden");
   message.classList.add("reveal");
 });
 
-// Replay website
+// REPLAY
 document.getElementById("replayBtn").addEventListener("click", () => {
+
   document.querySelectorAll("main section").forEach(section => {
     section.classList.add("hidden");
     section.classList.remove("reveal");
@@ -112,13 +104,14 @@ document.getElementById("replayBtn").addEventListener("click", () => {
   });
 });
 
-// Floating hearts
+// FLOATING HEARTS
 function createHearts(amount) {
-  const container = document.getElementById("particles");
 
+  const container = document.getElementById("particles");
   const symbols = ["♡", "♥", "✧", "✦"];
 
   for (let i = 0; i < amount; i++) {
+
     const heart = document.createElement("span");
 
     heart.className = "particle";
@@ -145,43 +138,41 @@ function createHearts(amount) {
   }
 }
 
-// Occasional floating hearts
+// BACKGROUND HEARTS
 setInterval(() => {
   createHearts(1);
 }, 2500);
 
-// Music button
-
 // MUSIC PLAYER
-const music = document.getElementById("backgroundMusic");
-const musicBtn = document.getElementById("musicBtn");
-const musicLabel = document.getElementById("musicLabel");
-
-let musicPlaying = false;
-
 musicBtn.addEventListener("click", async () => {
 
-  if (!musicPlaying) {
-    try {
+  try {
+
+    if (!musicPlaying) {
+
       await music.play();
 
       musicPlaying = true;
       musicLabel.textContent = "Pause our song";
 
-    } catch (error) {
-      console.error("Music playback error:", error);
-      musicLabel.textContent = "Unable to play song";
+    } else {
+
+      music.pause();
+
+      musicPlaying = false;
+      musicLabel.textContent = "Play our song";
+
     }
 
-  } else {
-    music.pause();
+  } catch (error) {
 
-    musicPlaying = false;
-    musicLabel.textContent = "Play our song";
+    console.error("Music error:", error);
+
+    musicLabel.textContent = "Music unavailable";
+
   }
 
 });
 
-
-// Initial gentle hearts
+// INITIAL ANIMATION
 createHearts(5);
