@@ -1,16 +1,25 @@
 
-/* =========================
-   PREMIUM ROMANTIC THEME
-========================= */
+/* ==========================================
+   A LITTLE APOLOGY FOR ANISHA
+   Premium Romantic Website
+   Designed by Rishit
+========================================== */
+
+
+/* ==========================================
+   1. GLOBAL SETTINGS
+========================================== */
 
 :root {
   --background: #fff8f7;
   --pink: #d98798;
+  --light-pink: #f8dce3;
   --deep-pink: #b76579;
   --gold: #bd9b68;
   --text: #4b3038;
   --muted: #927b80;
   --white: #ffffff;
+  --border: #eedde0;
 }
 
 * {
@@ -37,13 +46,33 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+
+/* ==========================================
+   2. BACKGROUND
+========================================== */
+
 .ambient-glow {
   position: fixed;
   inset: 0;
   pointer-events: none;
+
   background:
-    radial-gradient(circle at 10% 15%, #f8dce3 0, transparent 35%),
-    radial-gradient(circle at 90% 85%, #f4e4d2 0, transparent 35%);
+    radial-gradient(
+      circle at 10% 15%,
+      #f8dce3 0,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      #f4e4d2 0,
+      transparent 35%
+    );
+
   z-index: -2;
 }
 
@@ -55,42 +84,59 @@ button {
   z-index: 5;
 }
 
-/* TOPBAR */
+
+/* ==========================================
+   3. HEADER
+========================================== */
 
 .topbar {
   width: 100%;
   padding: 25px 7%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  position: relative;
+  z-index: 10;
 }
 
 .brand {
   font-family: "Playfair Display", serif;
   font-size: 20px;
   font-style: italic;
+  color: var(--text);
+  letter-spacing: 0.5px;
 }
 
 .brand span {
   color: var(--pink);
+  font-size: 22px;
 }
 
 .music-btn {
   background: rgba(255,255,255,0.75);
   border: 1px solid #ecd5d9;
-  padding: 10px 17px;
+
+  padding: 11px 18px;
   border-radius: 50px;
+
   color: var(--deep-pink);
   font-size: 12px;
-  transition: 0.3s;
+
+  transition: all 0.3s ease;
 }
 
 .music-btn:hover {
   background: white;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px #d991a222;
 }
 
-/* GENERAL */
+
+/* ==========================================
+   4. MAIN LAYOUT
+========================================== */
 
 main {
   width: 100%;
@@ -100,16 +146,36 @@ section {
   width: 100%;
   min-height: 85vh;
   padding: 90px 20px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   text-align: center;
 }
 
 .hidden {
   display: none !important;
 }
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+}
+
+h1 span,
+h2 span {
+  color: var(--deep-pink);
+  font-style: italic;
+}
+
+
+/* ==========================================
+   5. SECTION LABELS
+========================================== */
 
 .eyebrow,
 .section-label {
@@ -123,6 +189,7 @@ section {
 .eyebrow {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
 }
 
@@ -132,47 +199,62 @@ section {
   background: var(--gold);
 }
 
-h1,
-h2,
-h3 {
-  font-family: "Playfair Display", serif;
-  font-weight: 400;
-}
 
-h1 {
-  font-size: clamp(42px, 8vw, 82px);
-  line-height: 1.2;
-}
-
-h1 span,
-h2 span {
-  color: var(--deep-pink);
-  font-style: italic;
-}
+/* ==========================================
+   6. INTRO / HERO SECTION
+========================================== */
 
 .hero-heart {
   font-size: 65px;
   color: var(--pink);
   margin: 15px 0;
+
   animation: heartbeat 2s infinite;
 }
 
-.hero-text,
-.section-description {
+.hero h1 {
+  font-size: clamp(42px, 8vw, 82px);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.hero-text {
   color: var(--muted);
   font-size: 14px;
   line-height: 2;
   margin: 25px 0 35px;
 }
 
+.scroll-note {
+  margin-top: 80px;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b7a0a6;
+}
+
+
+/* ==========================================
+   7. BUTTONS
+========================================== */
+
 .primary-btn {
-  background: linear-gradient(135deg, #d991a2, #bb7186);
+  background: linear-gradient(
+    135deg,
+    #d991a2,
+    #bb7186
+  );
+
   color: white;
   border: none;
   border-radius: 50px;
+
   padding: 16px 30px;
   font-size: 13px;
+  font-weight: 500;
+
   box-shadow: 0 10px 25px #d991a233;
+
   transition: all 0.3s ease;
 }
 
@@ -181,33 +263,41 @@ h2 span {
   box-shadow: 0 15px 30px #d991a255;
 }
 
+.primary-btn:active {
+  transform: scale(0.97);
+}
+
 .primary-btn span {
   margin-left: 8px;
 }
 
 .secondary-btn {
   background: rgba(255,255,255,0.75);
+
   color: var(--deep-pink);
   border: 1px solid #e9c9d0;
   border-radius: 50px;
+
   padding: 15px 25px;
   font-size: 13px;
-  transition: 0.3s;
+
+  transition: all 0.3s ease;
 }
 
 .secondary-btn:hover {
-  background: #fff;
+  background: white;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px #d991a222;
 }
 
-.scroll-note {
-  margin-top: 80px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #b7a0a6;
+.continue-btn {
+  margin-top: 35px;
 }
 
-/* LETTER */
+
+/* ==========================================
+   8. APOLOGY LETTER SECTION
+========================================== */
 
 .letter-section {
   background: rgba(255,255,255,0.25);
@@ -216,11 +306,15 @@ h2 span {
 .letter-card {
   width: 100%;
   max-width: 570px;
+
   padding: 50px 45px;
-  background: rgba(255,255,255,0.82);
-  border: 1px solid #eedde0;
+
+  background: rgba(255,255,255,0.88);
+  border: 1px solid var(--border);
   border-radius: 5px;
+
   box-shadow: 0 25px 70px #9d6d7910;
+
   position: relative;
   text-align: left;
 }
@@ -268,23 +362,31 @@ h2 span {
 
 .letter-footer {
   text-align: center;
+
   margin-top: 30px;
+
   color: var(--gold);
   font-size: 11px;
   letter-spacing: 2px;
 }
 
-.continue-btn {
-  margin-top: 35px;
-}
 
-/* FLOWERS */
+/* ==========================================
+   9. VIRTUAL FLOWERS SECTION
+========================================== */
 
-.flowers-section h2,
-.forgive-section h2,
-.surprise-section h2 {
+.flowers-section h2 {
   font-size: clamp(38px, 6vw, 60px);
   line-height: 1.3;
+}
+
+.section-description {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+
+  max-width: 450px;
+  margin: 25px 0 35px;
 }
 
 .bouquet {
@@ -292,13 +394,18 @@ h2 span {
   align-items: center;
   justify-content: center;
   gap: 8px;
+
   margin: 35px 0;
   min-height: 140px;
 }
 
 .flower {
   font-size: 55px;
-  filter: drop-shadow(0 10px 12px #dca0aa33);
+
+  filter: drop-shadow(
+    0 10px 12px #dca0aa33
+  );
+
   animation: flowerSway 3s ease-in-out infinite;
 }
 
@@ -320,19 +427,33 @@ h2 span {
 
 .flower-message {
   max-width: 400px;
+
   margin-top: 25px;
+
   color: var(--deep-pink);
+
   font-family: "Playfair Display", serif;
   font-style: italic;
+  font-size: 18px;
   line-height: 1.8;
 }
 
-/* FORGIVENESS */
+
+/* ==========================================
+   10. FORGIVENESS SECTION
+========================================== */
+
+.forgive-section h2 {
+  font-size: clamp(38px, 6vw, 60px);
+  line-height: 1.3;
+}
 
 .big-heart {
   font-size: 90px;
   color: var(--pink);
+
   animation: heartbeat 2s infinite;
+
   margin: 10px 0 20px;
 }
 
@@ -341,46 +462,75 @@ h2 span {
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
+  align-items: center;
 }
 
 .choice-message {
   max-width: 400px;
+
   margin-top: 30px;
+
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-size: 20px;
   line-height: 1.7;
+
   color: var(--deep-pink);
 }
 
-/* SURPRISE */
+
+/* ==========================================
+   11. SURPRISE ENDING
+========================================== */
 
 .surprise-section {
   background:
-    radial-gradient(ellipse at center, #fff0f2, transparent 70%);
+    radial-gradient(
+      ellipse at center,
+      #fff0f2,
+      transparent 70%
+    );
+}
+
+.surprise-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .surprise-icon {
   font-size: 65px;
   margin-bottom: 25px;
+
   animation: heartbeat 2s infinite;
+}
+
+.surprise-section h2 {
+  font-size: clamp(38px, 6vw, 60px);
+  line-height: 1.3;
 }
 
 .surprise-text {
   max-width: 420px;
+
   color: var(--muted);
   line-height: 2;
   font-size: 14px;
+
   margin: 25px 0;
 }
 
 .promise-card {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.85);
+
   border: 1px solid #ecd9d5;
   padding: 35px;
+
   border-radius: 5px;
   width: 100%;
   max-width: 420px;
+
   box-shadow: 0 20px 50px #c58a8a15;
 }
 
@@ -391,9 +541,12 @@ h2 span {
 
 .promise-card p {
   font-family: "Playfair Display", serif;
+
   font-size: 19px;
   line-height: 1.8;
+
   margin: 15px 0;
+
   color: var(--deep-pink);
 }
 
@@ -409,15 +562,37 @@ h2 span {
 .final-message h3 {
   font-size: 30px;
   color: var(--deep-pink);
+
   margin-top: 10px;
+
   font-style: italic;
 }
 
-/* FOOTER */
+
+/* ==========================================
+   12. FLOATING HEARTS
+========================================== */
+
+.particle {
+  position: absolute;
+  bottom: -30px;
+
+  animation: floatUp linear forwards;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* ==========================================
+   13. FOOTER
+========================================== */
 
 footer {
   padding: 35px 20px;
+
   text-align: center;
+
   color: #ad9299;
   font-size: 11px;
   letter-spacing: 1px;
@@ -429,68 +604,83 @@ footer {
   margin-bottom: 10px;
 }
 
-/* FLOATING HEARTS */
 
-.particle {
-  position: absolute;
-  bottom: -30px;
-  animation: floatUp linear forwards;
-  opacity: 0;
-}
-
-/* ANIMATIONS */
+/* ==========================================
+   14. ANIMATIONS
+========================================== */
 
 @keyframes heartbeat {
+
   0%, 100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.12);
   }
+
 }
 
+
 @keyframes flowerSway {
+
   0%, 100% {
     transform: translateY(0) rotate(-4deg);
   }
+
   50% {
     transform: translateY(-10px) rotate(4deg);
   }
+
 }
 
+
 @keyframes floatUp {
+
   0% {
     transform: translateY(0) rotate(0);
     opacity: 0;
   }
+
   15% {
     opacity: 0.65;
   }
+
   85% {
     opacity: 0.5;
   }
+
   100% {
     transform: translateY(-110vh) rotate(360deg);
     opacity: 0;
   }
+
 }
 
+
 @keyframes fadeIn {
+
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
+
 }
+
 
 .reveal {
   animation: fadeIn 0.8s ease forwards;
 }
 
-/* MOBILE */
+
+/* ==========================================
+   15. MOBILE RESPONSIVENESS
+========================================== */
 
 @media (max-width: 600px) {
 
@@ -512,6 +702,21 @@ footer {
     min-height: 75vh;
   }
 
+  .eyebrow,
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+
+  .hero-text,
+  .section-description {
+    font-size: 13px;
+  }
+
   .letter-card {
     padding: 35px 25px;
   }
@@ -524,12 +729,24 @@ footer {
     font-size: 12px;
   }
 
+  .letter-footer {
+    font-size: 9px;
+  }
+
   .flower {
     font-size: 40px;
   }
 
   .bouquet {
     gap: 3px;
+  }
+
+  .flower-message {
+    font-size: 16px;
+  }
+
+  .big-heart {
+    font-size: 75px;
   }
 
   .choice-buttons {
@@ -542,5 +759,65 @@ footer {
     width: 100%;
   }
 
+  .promise-card {
+    padding: 28px 20px;
+  }
+
+  .promise-card p {
+    font-size: 17px;
+  }
+
+  .final-message h3 {
+    font-size: 26px;
+  }
+
 }
 
+
+/* ==========================================
+   16. SMALL SCREEN ADJUSTMENTS
+========================================== */
+
+@media (max-width: 360px) {
+
+  .brand {
+    font-size: 15px;
+  }
+
+  .music-btn {
+    padding: 8px 10px;
+    font-size: 9px;
+  }
+
+  .hero h1 {
+    font-size: 39px;
+  }
+
+  .primary-btn {
+    padding: 14px 22px;
+    font-size: 12px;
+  }
+
+  .letter-card {
+    padding: 28px 19px;
+  }
+
+}
+
+
+/* ==========================================
+   17. REDUCED MOTION ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
