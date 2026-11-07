@@ -1,131 +1,316 @@
 
-/* =========================
-   APOLOGY WEBSITE FOR ANISHA
-========================= */
+/* ==========================================
+   A LITTLE APOLOGY FOR ANISHA
+   JavaScript
+   Made with love by Rishit
+========================================== */
+
+
+/* ==========================================
+   1. GET HTML ELEMENTS
+========================================== */
 
 const hero = document.getElementById("hero");
-const letterSection = document.getElementById("letterSection");
-const flowersSection = document.getElementById("flowersSection");
-const forgiveSection = document.getElementById("forgiveSection");
-const surpriseSection = document.getElementById("surpriseSection");
 
-// MUSIC
-const music = document.getElementById("backgroundMusic");
-const musicBtn = document.getElementById("musicBtn");
-const musicLabel = document.getElementById("musicLabel");
+const letterSection =
+  document.getElementById("letterSection");
+
+const flowersSection =
+  document.getElementById("flowersSection");
+
+const forgiveSection =
+  document.getElementById("forgiveSection");
+
+const surpriseSection =
+  document.getElementById("surpriseSection");
+
+
+/* ==========================================
+   2. MUSIC PLAYER
+========================================== */
+
+const music =
+  document.getElementById("backgroundMusic");
+
+const musicBtn =
+  document.getElementById("musicBtn");
+
+const musicLabel =
+  document.getElementById("musicLabel");
 
 let musicPlaying = false;
 
-// SHOW SECTION
+
+// Play and pause music
+musicBtn.addEventListener("click", async () => {
+
+  if (!musicPlaying) {
+
+    try {
+
+      await music.play();
+
+      musicPlaying = true;
+
+      musicLabel.textContent = "Pause our song";
+
+      musicBtn.setAttribute(
+        "aria-label",
+        "Pause music"
+      );
+
+    } catch (error) {
+
+      console.error("Music playback error:", error);
+
+      musicLabel.textContent = "Try again";
+
+    }
+
+  } else {
+
+    music.pause();
+
+    musicPlaying = false;
+
+    musicLabel.textContent = "Play our song";
+
+    musicBtn.setAttribute(
+      "aria-label",
+      "Play music"
+    );
+
+  }
+
+});
+
+
+// Keep button state synchronized if playback ends
+music.addEventListener("pause", () => {
+
+  musicPlaying = false;
+
+  musicLabel.textContent = "Play our song";
+
+});
+
+music.addEventListener("play", () => {
+
+  musicPlaying = true;
+
+  musicLabel.textContent = "Pause our song";
+
+});
+
+
+/* ==========================================
+   3. SHOW SECTIONS
+========================================== */
+
 function showSection(section) {
+
   section.classList.remove("hidden");
+
+  section.classList.remove("reveal");
+
+  // Restart animation
+  void section.offsetWidth;
+
   section.classList.add("reveal");
 
   setTimeout(() => {
+
     section.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
+
   }, 100);
+
 }
 
-// OPEN LETTER
-document.getElementById("openLetter").addEventListener("click", () => {
-  showSection(letterSection);
-  createHearts(12);
-});
 
-// FLOWERS SECTION
-document.getElementById("continueBtn").addEventListener("click", () => {
-  showSection(flowersSection);
-  createHearts(15);
-});
+/* ==========================================
+   4. INTRO TO APOLOGY LETTER
+========================================== */
 
-// FLOWER BUTTON
-document.getElementById("flowerBtn").addEventListener("click", () => {
-  const message = document.getElementById("flowerMessage");
+document
+  .getElementById("openLetter")
+  .addEventListener("click", () => {
 
-  message.classList.remove("hidden");
-  message.classList.add("reveal");
+    showSection(letterSection);
+
+    createHearts(12);
+
+  });
+
+
+/* ==========================================
+   5. LETTER TO FLOWERS
+========================================== */
+
+document
+  .getElementById("continueBtn")
+  .addEventListener("click", () => {
+
+    showSection(flowersSection);
+
+    createHearts(15);
+
+  });
+
+
+/* ==========================================
+   6. VIRTUAL FLOWERS
+========================================== */
+
+const flowerBtn =
+  document.getElementById("flowerBtn");
+
+const flowerMessage =
+  document.getElementById("flowerMessage");
+
+
+flowerBtn.addEventListener("click", () => {
+
+  flowerMessage.classList.remove("hidden");
+
+  flowerMessage.classList.remove("reveal");
+
+  void flowerMessage.offsetWidth;
+
+  flowerMessage.classList.add("reveal");
+
+  flowerBtn.textContent =
+    "A little bouquet for you 🌸";
 
   createHearts(25);
+
 });
 
-// FORGIVENESS SECTION
-document.getElementById("forgiveBtn").addEventListener("click", () => {
-  showSection(forgiveSection);
-  createHearts(10);
-});
 
-// YES BUTTON
-document.getElementById("yesBtn").addEventListener("click", () => {
-  const message = document.getElementById("choiceMessage");
+/* ==========================================
+   7. FLOWERS TO FORGIVENESS
+========================================== */
 
-  message.textContent =
-    "Thank you for sharing your heart with me. " +
-    "I'll keep trying to be better. ❤️";
+document
+  .getElementById("forgiveBtn")
+  .addEventListener("click", () => {
 
-  message.classList.remove("hidden");
-  message.classList.add("reveal");
+    showSection(forgiveSection);
+
+    createHearts(15);
+
+  });
+
+
+/* ==========================================
+   8. FORGIVENESS BUTTON
+========================================== */
+
+const yesBtn =
+  document.getElementById("yesBtn");
+
+const noBtn =
+  document.getElementById("NoBtn");
+
+const choiceMessage =
+  document.getElementById("choiceMessage");
+
+
+yesBtn.addEventListener("click", () => {
+
+  choiceMessage.textContent =
+    "Thank you for sharing your heart with me, Ani. " +
+    "I'll keep trying to be better, listen more, " +
+    "and make more beautiful memories together. ❤️";
+
+  choiceMessage.classList.remove("hidden");
+
+  choiceMessage.classList.remove("reveal");
+
+  void choiceMessage.offsetWidth;
+
+  choiceMessage.classList.add("reveal");
 
   createHearts(35);
 
+  yesBtn.disabled = true;
+
+  // Reveal the surprise after a short pause
   setTimeout(() => {
+
     showSection(surpriseSection);
+
     createHearts(40);
-  }, 1800);
+
+  }, 2200);
+
 });
 
-// NO BUTTON - RESPECT HER SPACE
-document.getElementById("NoBtn").addEventListener("click", () => {
-  const message = document.getElementById("choiceMessage");
 
-  message.textContent =
-    "I understand, Ani. I'll respect your feelings " +
-    "and give you the space you need. ❤️";
+/* ==========================================
+   9. NEED MORE TIME BUTTON
+========================================== */
 
-  message.classList.remove("hidden");
-  message.classList.add("reveal");
+noBtn.addEventListener("click", () => {
+
+  choiceMessage.textContent =
+    "felt sad to hear this" +
+    
+    "give me last chance please ❤️";
+
+  choiceMessage.classList.remove("hidden");
+
+  choiceMessage.classList.remove("reveal");
+
+  void choiceMessage.offsetWidth;
+
+  choiceMessage.classList.add("reveal");
+
+  createHearts(8);
+
 });
 
-// REPLAY
-document.getElementById("replayBtn").addEventListener("click", () => {
 
-  document.querySelectorAll("main section").forEach(section => {
-    section.classList.add("hidden");
-    section.classList.remove("reveal");
-  });
+/* ==========================================
+   10. FLOATING HEART ANIMATION
+========================================== */
 
-  hero.classList.remove("hidden");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-
-// FLOATING HEARTS
 function createHearts(amount) {
 
-  const container = document.getElementById("particles");
-  const symbols = ["♡", "♥", "✧", "✦"];
+  const container =
+    document.getElementById("particles");
+
+  const symbols = [
+    "♡",
+    "♥",
+    "✧",
+    "✦"
+  ];
 
   for (let i = 0; i < amount; i++) {
 
-    const heart = document.createElement("span");
+    const heart =
+      document.createElement("span");
 
     heart.className = "particle";
 
     heart.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
+      symbols[
+        Math.floor(Math.random() * symbols.length)
+      ];
 
-    heart.style.left = Math.random() * 100 + "%";
+    heart.style.left =
+      Math.random() * 100 + "%";
 
     heart.style.fontSize =
       Math.random() * 20 + 12 + "px";
 
     heart.style.color =
-      Math.random() > 0.5 ? "#d98798" : "#bd9b68";
+      Math.random() > 0.5
+        ? "#d98798"
+        : "#bd9b68";
 
     heart.style.animationDuration =
       Math.random() * 4 + 5 + "s";
@@ -133,46 +318,83 @@ function createHearts(amount) {
     container.appendChild(heart);
 
     setTimeout(() => {
+
       heart.remove();
+
     }, 10000);
+
   }
+
 }
 
-// BACKGROUND HEARTS
+
+/* ==========================================
+   11. BACKGROUND HEARTS
+========================================== */
+
+// Create occasional floating hearts
 setInterval(() => {
+
   createHearts(1);
+
 }, 2500);
 
-// MUSIC PLAYER
-musicBtn.addEventListener("click", async () => {
 
-  try {
+/* ==========================================
+   12. REPLAY WEBSITE
+========================================== */
 
-    if (!musicPlaying) {
+document
+  .getElementById("replayBtn")
+  .addEventListener("click", () => {
 
-      await music.play();
+    // Hide all sections
+    document
+      .querySelectorAll("main section")
+      .forEach(section => {
 
-      musicPlaying = true;
-      musicLabel.textContent = "Pause our song";
+        section.classList.add("hidden");
 
-    } else {
+        section.classList.remove("reveal");
 
-      music.pause();
+      });
 
-      musicPlaying = false;
-      musicLabel.textContent = "Play our song";
 
-    }
+    // Show intro again
+    hero.classList.remove("hidden");
 
-  } catch (error) {
+    // Reset buttons
+    yesBtn.disabled = false;
 
-    console.error("Music error:", error);
+    flowerBtn.innerHTML =
+      'Send me a little love <span>♡</span>';
 
-    musicLabel.textContent = "Music unavailable";
+    flowerMessage.classList.add("hidden");
 
-  }
+    choiceMessage.classList.add("hidden");
 
-});
 
-// INITIAL ANIMATION
+    // Scroll to top
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+    createHearts(15);
+
+  });
+
+
+/* ==========================================
+   13. INITIAL ANIMATION
+========================================== */
+
 createHearts(5);
+
+console.log(
+  "Apology website loaded successfully ❤️"
+);
+
