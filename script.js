@@ -151,17 +151,26 @@ setInterval(() => {
 }, 2500);
 
 // Music button
+
+// MUSIC PLAYER
+const music = document.getElementById("backgroundMusic");
+const musicBtn = document.getElementById("musicBtn");
+const musicLabel = document.getElementById("musicLabel");
+
+let musicPlaying = false;
+
 musicBtn.addEventListener("click", async () => {
+
   if (!musicPlaying) {
     try {
       await music.play();
 
       musicPlaying = true;
       musicLabel.textContent = "Pause our song";
-      musicBtn.style.background = "#fff0f3";
 
     } catch (error) {
-      musicLabel.textContent = "Tap to try again";
+      console.error("Music playback error:", error);
+      musicLabel.textContent = "Unable to play song";
     }
 
   } else {
@@ -169,9 +178,10 @@ musicBtn.addEventListener("click", async () => {
 
     musicPlaying = false;
     musicLabel.textContent = "Play our song";
-    musicBtn.style.background = "";
   }
+
 });
+
 
 // Initial gentle hearts
 createHearts(5);
