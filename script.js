@@ -82,7 +82,7 @@ document.getElementById("NoBtn").addEventListener("click", () => {
 
   message.textContent =
     "Feel sad to here that 
-     Sorry for everything❤️";
+     ❤️";
 
   message.classList.remove("hidden");
   message.classList.add("reveal");
